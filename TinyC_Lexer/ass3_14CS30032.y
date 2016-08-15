@@ -1,0 +1,43 @@
+%{ /* C Declarations and Definitions */
+#include <string.h>
+#include <stdio.h>
+extern int yylex();
+void yyerror(char *s);
+%}
+
+
+%union{
+	int integervalue;
+	float floatvalue;
+	char* charactervalue;
+}
+
+%token<integervalue> INTCONST
+%token<floatvalue>	 FLOATCONSTANT
+%token<charactervalue>	CHARACTERCONST
+%token<charactervalue>	STRINGLIT
+%token<charactervalue>	IDENTIFIER
+%token<charactervalue>	ENUMERATIONCONSTANT
+
+
+%token TYPEDEF EXTERN STATIC AUTO REGISTER INLINE RESTRICT
+%token CHAR SHORT INT LONG SIGNED UNSIGNED FLOAT DOUBLE CONST VOLATILE VOID
+%token BOOL COMPLEX IMAGINARY
+%token STRUCT UNION ENUM
+%token BREAK CASE CONTINUE DEFAULT DO IF ELSE FOR GOTO WHILE SWITCH SIZEOF
+%token RETURN
+
+
+%token ARROW ADDUNARY SUBTRACTUNARY
+%token LEFTSHIFT RIGHTSHIFT LESS GREATER LE GE
+%token COMPARISONEQUAL NE BITWISEXOR BITWISEOR BITWISEAND OR QUESTIONMARK COLON
+%token TRIPLEDOT MULTIPLYEQUAL DIVIDEEQUAL PERCENTILEEQUAL PLUSEQUAL MINUSEQUAL LEFTSHIFTEQUAL RIGHTSHIFTEQUAL BITWISEANDEQUAL 
+%token BITWISEXOREQUAL BITWISEOREQUAL COMMENT
+
+%%
+dummy:AUTO
+%%
+
+void yyerror(char *s) {
+	printf ("ERROR: %s",s);
+}
