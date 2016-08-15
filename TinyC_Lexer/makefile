@@ -14,7 +14,7 @@ lex.yy.c: ass3_14CS30032.l y.tab.h
 	flex ass3_14CS30032.l
 
 y.tab.c: ass3_14CS30032.y
-	yacc -dtv ass3_12CS30032.y -W
+	yacc -dtv ass3_14CS30032.y -W
 
 y.tab.h: ass3_14CS30032.y
 	yacc -dtv ass3_14CS30032.y -W
